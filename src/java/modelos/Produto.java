@@ -1,27 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelos;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author gutol
+ * @author Caio Evangelista
  */
 public class Produto {
+   private String nome;
     private String descricao;
     private float preco;
+    private int qunatidade;
     private boolean oferta;
     private static ArrayList<Produto> lista = new ArrayList();
-    
-    public String getDescricao(){
+
+
+   public void vender(int qunatidade) {
+      this.qunatidade -= qunatidade;
+   }
+
+   public void comprar(int qunatidade) {
+      this.qunatidade += qunatidade;
+   }
+
+   public int getQunatidade() {
+      return qunatidade;
+   }
+
+   public String getNome() {
+      return nome;
+   }
+
+   public void setNome(String nome) {
+      this.nome = nome;
+   }
+
+   public String getDescricao(){
         return this.descricao;
     }
-    
-    public void setDescricao(String descricao){
+
+   public void setDescricao(String descricao){
         this.descricao = descricao;
     }
 
@@ -48,6 +66,10 @@ public class Produto {
     public void setOferta(boolean oferta) {
         this.oferta = oferta;
     }
-        
-    
+
+   @Override
+   public String toString() {
+      return "Produto{" + "nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + ", qunatidade=" + qunatidade + ", oferta=" + oferta + '}';
+   }
+
 }
