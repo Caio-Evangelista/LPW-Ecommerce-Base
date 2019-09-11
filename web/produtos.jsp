@@ -4,6 +4,7 @@
     Author     : Caio Evangelista
 --%>
 
+
 <%@page import="modelos.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
     <body>
-
+        
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -32,29 +33,53 @@
 
             </ul>
           </div>
-        </nav>
+        </nav><!NAVBAR>
+        
+        <div class="container">
 
         <h1>Hello World!</h1>
-
+        
+        <% 
+            boolean logado = false;
+            if(session != null && session.getAttribute("logado") != null){
+                logado = (boolean) session.getAttribute("logado");
+            }
+            
+            if(logado){
+        %>
         <form action="AddProduto" method="post">
             Descrição: <input name="descricao">
             Preço: <input name="preco">
 
             <button type="submit">OK</button>
         </form>
-
         <%
-            for(int i=0; i<Produto.getLista().size(); i++){
+            }
+        %>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Qtd</th>
+                <tr>
+            </thead>
+            <tbody>
+                <%
+            for(int i = 0; i < Produto.lista.size(); i++){
 
                 Produto p = Produto.getLista().get(i);
 
                 out.println("<pre> "+ p.getDescricao() +" </pre>");
-
+            
             }
-
         %>
-
-
+                
+            </tbody>
+        </table>
+        </div>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
