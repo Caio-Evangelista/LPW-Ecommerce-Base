@@ -7,12 +7,26 @@ import java.util.ArrayList;
  * @author Caio Evangelista
  */
 public class Produto {
-   private String nome;
-    private String descricao;
-    private float preco;
-    private int qunatidade;
-    private boolean oferta;
-    private static ArrayList<Produto> lista = new ArrayList();
+   private int id;
+   private String descricao;
+   private float preco;
+   private int qunatidade;
+   private boolean oferta;
+   private static ArrayList<Produto> lista = new ArrayList();
+
+   public Produto(){}
+   public Produto(String descricao){
+     this.descricao = descricao;
+   }
+   public Produto(String descricao, float preco){
+     this.descricao = descricao;
+     this.preco = preco;
+   }
+   public Produto(String descricao, float preco, boolean oferta){
+     this.descricao = descricao;
+     this.preco = preco;
+     this.oferta = oferta;
+   }
 
 
    public void vender(int qunatidade) {
@@ -23,16 +37,16 @@ public class Produto {
       this.qunatidade += qunatidade;
    }
 
+   public int getId() {
+      return id;
+   }
+
+   public void setId(int id) {
+      this.id = id;
+   }
+
    public int getQunatidade() {
       return qunatidade;
-   }
-
-   public String getNome() {
-      return nome;
-   }
-
-   public void setNome(String nome) {
-      this.nome = nome;
    }
 
    public String getDescricao(){
@@ -69,7 +83,7 @@ public class Produto {
 
    @Override
    public String toString() {
-      return "Produto{" + "nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + ", qunatidade=" + qunatidade + ", oferta=" + oferta + '}';
+      return "Produto{" + ", descricao=" + descricao + ", preco=" + preco + ", qunatidade=" + qunatidade + ", oferta=" + oferta + '}';
    }
 
 }

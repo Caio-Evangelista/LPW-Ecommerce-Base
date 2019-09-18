@@ -10,34 +10,19 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <!CSS>
-      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
       <link href="css/login.css" rel="stylesheet" type="text/css"/>
-      
+      <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
       <title>Login</title>
    </head>
    <body class="text-center">
 
-      <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="index.jsp">Minha Loja</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.jsp">Ofertas</a></li>
-              <li><a href="produtos.jsp">Produtos</a></li>
-              <li><a href="sobre.jsp">Sobre</a></li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="login.jsp">Entrar</a></li>
-
-            </ul>
-          </div>
-        </nav>
+      <jsp:include page="menu.jsp">
+         <jsp:param name="item" value="OFERTAS" />
+      </jsp:include>
 
       <div class="conteiner">
-          
+
          <form class="form-signin" action="Login" method="post">
 
          <h1 class="h3 mb-3 font-weight-normal">Faça o Login</h1>

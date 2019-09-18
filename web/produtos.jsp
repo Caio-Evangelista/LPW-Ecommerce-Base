@@ -4,7 +4,6 @@
     Author     : Caio Evangelista
 --%>
 
-
 <%@page import="modelos.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,39 +11,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Minha Loja</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="index.jsp">Minha Loja</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.jsp">Ofertas</a></li>
-              <li><a href="produtos.jsp">Produtos</a></li>
-              <li><a href="sobre.jsp">Sobre</a></li>
-            </ul>
 
+   <jsp:include page="menu.jsp">
+      <jsp:param name="item" value="PRODUTOS" />
+   </jsp:include>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="login.jsp">Entrar</a></li>
-
-            </ul>
-          </div>
-        </nav><!NAVBAR>
-        
         <div class="container">
 
         <h1>Hello World!</h1>
-        
-        <% 
+
+        <%
             boolean logado = false;
             if(session != null && session.getAttribute("logado") != null){
                 logado = (boolean) session.getAttribute("logado");
             }
-            
+
             if(logado){
         %>
         <form action="AddProduto" method="post">
@@ -56,29 +40,30 @@
         <%
             }
         %>
-        
-        <table class="table table-striped">
+
+        <table class="table">
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Qtd</th>
-                <tr>
+               <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Produto</th>
+                  <th scope="col">Preço</th>
+               </tr>
             </thead>
             <tbody>
-                <%
-            for(int i = 0; i < Produto.lista.size(); i++){
+                  <%
+                  for (Produto prod : Produto.getLista()) {
 
-                Produto p = Produto.getLista().get(i);
-
-                out.println("<pre> "+ p.getDescricao() +" </pre>");
-            
-            }
-        %>
-                
+                     %>
+                     <tr>
+                        <th scope="row"> <%=prod.getId()%> </th>
+                        <td><%=prod.getDescricao() %></td>
+                        <td><%=prod.getPreco() %></td>
+                     </tr>
+                     <%
+                  }
+                  %>
             </tbody>
-        </table>
+         </table>
         </div>
         <script src="js/bootstrap.min.js"></script>
     </body>
