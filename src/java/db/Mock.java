@@ -2,17 +2,25 @@ package db;
 
 import java.util.ArrayList;
 import modelos.Produto;
+import modelos.Usuarios;
 
 /**
  *
  * @author Caio Evangelista
  */
 public class Mock {
-   private static ArrayList<Produto> lista;
+
 
    public static void makeMock(){
+      Mock.makeProd();
+      Mock.makeUser();
+   }
 
-      if(lista == null){
+   private static void makeProd(){
+
+      ArrayList<Produto> lista;
+
+      if(Produto.getLista().isEmpty()){
          lista = Produto.getLista();
 
          Produto arduino = new Produto("Arduino Uno", 50, false);
@@ -29,6 +37,18 @@ public class Mock {
          lista.add(resistor);
          Produto camera = new Produto("Camera para Arduino", 24, true);
          lista.add(camera);
+      }
+   }
+
+   private static void makeUser(){
+
+      ArrayList<Usuarios> lista;
+
+      if(Usuarios.getLista().isEmpty()){
+         lista = Usuarios.getLista();
+
+         Usuarios admin = new Usuarios("Caio Felipe", "cfevangelista06@gmail.com", "Caio-Evangelista", "123");
+         lista.add(admin);
       }
 
    }

@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Usuarios;
 
 /**
  * @author Caio Evangelista
@@ -17,7 +18,7 @@ public class Login extends HttpServlet {
       String email = request.getParameter("email");
       String senha = request.getParameter("senha");
 
-      if(email.equals("adm@ifpr.edu.br") && senha.equals("admin") ){
+      if(Usuarios.isLogin(email, senha) ){
          request.getSession().setAttribute("logado", true);
          response.sendRedirect("produtos.jsp");
       }

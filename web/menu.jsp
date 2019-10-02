@@ -17,19 +17,17 @@
 
 %>
 
+<link href="css/menu.css" rel="stylesheet" type="text/css"/>
 
 <nav class="navbar navbar-inverse">
 
-   <a class="navbar-brand" href="#">
-      <img src="image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      Bootstrap
+   <a class="navbar-brand" href="index.jsp">
+      <img src="image/logo.png" alt="" width="100px" style="display: block; margin-top: -10px; "/>
    </a>
    <ul class="nav navbar-nav">
       <li <%=ofertasActive%> ><a href="index.jsp">Ofertas</a></li>
       <li <%=produtosActive%> ><a href="produtos.jsp">Produtos</a></li>
       <li <%=sobreActive%> ><a href="sobre.jsp">Sobre</a></li>
    </ul>
-   <ul class="nav navbar-nav navbar-right">
-      <li><a href="login.jsp">Entrar</a></li>
-   </ul>
+   
 </nav>

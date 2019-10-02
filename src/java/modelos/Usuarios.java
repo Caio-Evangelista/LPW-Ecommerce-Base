@@ -17,9 +17,22 @@ public class Usuarios {
    private String email;
    private String senha;
 
-   private static ArrayList<Produto> lista = new ArrayList();
+   private static ArrayList<Usuarios> lista = new ArrayList();
 
    public Usuarios(){
+   }
+   public Usuarios(String nome, String email, String nickName, String senha){
+      this.nome = nome;
+      this.email = email;
+      this.nickName = nickName;
+      this.senha = senha;
+   }
+
+   public static boolean isLogin(String email, String senha){
+      for(Usuarios user : lista)
+         if((email.equals(user.email) || email.equals(user.nickName)) && senha.equals(user.senha))
+            return true;
+      return false;
    }
 
    public String getNome() {
@@ -86,11 +99,11 @@ public class Usuarios {
       this.senha = senha;
    }
 
-   public static ArrayList<Produto> getLista() {
+   public static ArrayList<Usuarios> getLista() {
       return lista;
    }
 
-   public static void setLista(ArrayList<Produto> lista) {
+   public static void setLista(ArrayList<Usuarios> lista) {
       Usuarios.lista = lista;
    }
 

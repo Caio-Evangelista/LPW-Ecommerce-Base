@@ -21,25 +21,22 @@
          <jsp:param name="item" value="OFERTAS" />
       </jsp:include>
 
-      <div class="conteiner">
+      <div style="width: 30%; display: block; margin-left: 35%; margin-top: 13%">
 
          <form class="form-signin" action="Login" method="post">
 
-         <h1 class="h3 mb-3 font-weight-normal">Faça o Login</h1>
 
-         <label for="inputEmail" class="sr-only">Email</label>
-         <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <img src="image/logo.png" alt=""/>
 
-         <label for="inputPassword" class="sr-only">Senha</label>
-         <input name="senha" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-         <div class="checkbox mb-3">
-            <label>
-               <input type="checkbox" value="remember-me"> Remember me
-            </label>
-         </div>
-         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-         <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
-      </form>
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input name="email" id="inputEmail" class="form-control" placeholder="Usuário ou Email" required autofocus style="margin-top: 3px">
+
+            <label for="inputPassword" class="sr-only" >Senha</label>
+            <input name="senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" required style="margin-top: 3px">
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10px">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+         </form>
       </div>
       <script src="js/bootstrap.min.js" type="text/javascript"></script>
    </body>
