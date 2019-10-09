@@ -25,7 +25,6 @@
          <table class="table">
             <thead>
                <tr>
-                  <th scope="col">#</th>
                   <th scope="col">Produto</th>
                   <th scope="col">Preço</th>
                </tr>
@@ -37,7 +36,6 @@
                      if(prod.isOferta()){
                         %>
                         <tr>
-                           <th scope="row"> <%=prod.getId()%> </th>
                            <td><%=prod.getDescricao() %></td>
                            <td><%=prod.getPreco() %></td>
                         </tr>
@@ -48,7 +46,7 @@
             </tbody>
          </table>
 
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 540px; border-color: black; border-width: 5px;">
                <div class="row no-gutters">
                   <div class="col-md-4">
                      <img src="..." class="card-img" alt="...">

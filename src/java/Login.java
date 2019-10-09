@@ -14,16 +14,26 @@ public class Login extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-
-      String email = request.getParameter("email");
-      String senha = request.getParameter("senha");
-
-      if(Usuarios.isLogin(email, senha) ){
-         request.getSession().setAttribute("logado", true);
-         response.sendRedirect("produtos.jsp");
+      boolean logado = false;
+      if(request.getSession() != null &&  request.getSession().getAttribute("logado") != null){
+         logado = (boolean) request.getSession().getAttribute("logado");
       }
-      else {
-         response.sendRedirect("login.jsp");
+
+      if(logado){
+         request.getSession().setAttribute("logado", false);
+         response.sendRedirect("index.jsp");
+      }
+      else{
+         String email = request.getParameter("email");
+         String senha = request.getParameter("senha");
+
+         if(Usuarios.isLogin(email, senha) ){
+            request.getSession().setAttribute("logado", true);
+            response.sendRedirect("addProduto.jsp");
+         }
+         else {
+            response.sendRedirect("login.jsp");
+         }
       }
 
    }

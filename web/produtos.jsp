@@ -21,25 +21,6 @@
 
         <div class="container">
 
-        <h1>Hello World!</h1>
-
-        <%
-            boolean logado = false;
-            if(session != null && session.getAttribute("logado") != null){
-                logado = (boolean) session.getAttribute("logado");
-            }
-
-            if(logado){
-        %>
-        <form action="AddProduto" method="post">
-            Descrição: <input name="descricao">
-            Preço: <input name="preco">
-
-            <button type="submit">OK</button>
-        </form>
-        <%
-            }
-        %>
 
         <table class="table">
             <thead>
@@ -54,6 +35,7 @@
                   for (Produto prod : Produto.getLista()) {
 
                      %>
+
                      <tr>
                         <th scope="row"> <%=prod.getId()%> </th>
                         <td><%=prod.getDescricao() %></td>
