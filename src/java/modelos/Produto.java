@@ -12,7 +12,7 @@ public class Produto {
    private float preco;
    private int qunatidade;
    private boolean oferta;
-   private static ArrayList<Produto> lista = new ArrayList();
+   public static ArrayList<Produto> lista = new ArrayList();
 
    public Produto(){}
    public Produto(String descricao){
@@ -65,11 +65,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public static ArrayList<Produto> getLista() {
+    public ArrayList<Produto> getLista() {
         return lista;
     }
 
-    public static void setLista(ArrayList<Produto> lista) {
+    public void setLista(ArrayList<Produto> lista) {
         Produto.lista = lista;
     }
 

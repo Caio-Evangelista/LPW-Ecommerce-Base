@@ -4,66 +4,35 @@
     Author     : Caio Evangelista
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="modelos.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Minha Loja</title>
-        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-         <link href="product.css" rel="stylesheet">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Minha Loja</title>
+      <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+      <link href="product.css" rel="stylesheet">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-
       <jsp:include page="menu.jsp">
          <jsp:param name="item" value="OFERTAS" />
       </jsp:include>
 
-      <div class="container">
+      <jsp:useBean id="produtos" class="modelos.Produto" />
 
-         <table class="table">
-            <thead>
-               <tr>
-                  <th scope="col">Produto</th>
-                  <th scope="col">Preço</th>
-               </tr>
-            </thead>
-            <tbody>
-                  <%
-                  for (Produto prod : Produto.getLista()) {
-
-                     if(prod.isOferta()){
-                        %>
-                        <tr>
-                           <td><%=prod.getDescricao() %></td>
-                           <td><%=prod.getPreco() %></td>
-                        </tr>
-                        <%
-                     }
-                  }
-                  %>
-            </tbody>
-         </table>
-
-            <div class="card mb-3" style="max-width: 540px; border-color: black; border-width: 5px;">
-               <div class="row no-gutters">
-                  <div class="col-md-4">
-                     <img src="..." class="card-img" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
+      <c:forEach var="prod" items="${produtos.lista}">
+         <pre> ${prod.descricao} </pre>
+      </c:forEach>
 
 
-
-      </div>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

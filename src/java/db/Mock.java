@@ -20,8 +20,8 @@ public class Mock {
 
       ArrayList<Produto> lista;
 
-      if(Produto.getLista().isEmpty()){
-         lista = Produto.getLista();
+      if(Produto.lista.isEmpty()){
+         lista = Produto.lista;
 
          Produto arduino = new Produto("Arduino Uno", 50, false);
          lista.add(arduino);

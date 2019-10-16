@@ -16,7 +16,7 @@
   <body>
 
       <jsp:include page="menu.jsp">
-         <jsp:param name="item" value="ADCIONAR" />
+         <jsp:param name="item" value="ADD" />
       </jsp:include>
 
      <%
