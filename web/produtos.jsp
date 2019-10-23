@@ -4,7 +4,7 @@
     Author     : Caio Evangelista
 --%>
 
-<%@page import="modelos.Produto"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,38 +15,16 @@
     </head>
     <body>
 
-   <jsp:include page="menu.jsp">
-      <jsp:param name="item" value="PRODUTOS" />
-   </jsp:include>
+        <jsp:include page="menu.jsp">
+            <jsp:param name="item" value="PRODUTOS" />
+        </jsp:include>
 
-        <div class="container">
+        <jsp:useBean id="produtos" class="modelos.Produto" />
+        
+        <c:forEach var="prod" items="${produtos.lista}">
+            <pre> ${prod.descricao} </pre>
+        </c:forEach>
 
-
-        <table class="table">
-            <thead>
-               <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Produto</th>
-                  <th scope="col">Preço</th>
-               </tr>
-            </thead>
-            <tbody>
-                  <%
-                  for (Produto prod : Produto.getLista()) {
-
-                     %>
-
-                     <tr>
-                        <th scope="row"> <%=prod.getId()%> </th>
-                        <td><%=prod.getDescricao() %></td>
-                        <td><%=prod.getPreco() %></td>
-                     </tr>
-                     <%
-                  }
-                  %>
-            </tbody>
-         </table>
-        </div>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

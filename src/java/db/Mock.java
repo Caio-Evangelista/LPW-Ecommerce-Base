@@ -22,7 +22,7 @@ public class Mock {
 
       if(Produto.lista.isEmpty()){
          lista = Produto.lista;
-
+/*
          Produto arduino = new Produto("Arduino Uno", 50, false);
          lista.add(arduino);
          Produto rasp = new Produto("RaspBerry pi 3 B+", 150, true);
@@ -36,7 +36,7 @@ public class Mock {
          Produto resistor = new Produto("Kit Resistore - 500 unidades", 15, true);
          lista.add(resistor);
          Produto camera = new Produto("Camera para Arduino", 24, true);
-         lista.add(camera);
+         lista.add(camera);*/
       }
    }
 
@@ -44,8 +44,8 @@ public class Mock {
 
       ArrayList<Usuarios> lista;
 
-      if(Usuarios.getLista().isEmpty()){
-         lista = Usuarios.getLista();
+      if(Usuarios.lista.isEmpty()){
+         lista = Usuarios.lista;
 
          Usuarios admin = new Usuarios("Caio Felipe", "cfevangelista06@gmail.com", "Caio-Evangelista", "123");
          lista.add(admin);

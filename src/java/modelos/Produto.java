@@ -7,83 +7,89 @@ import java.util.ArrayList;
  * @author Caio Evangelista
  */
 public class Produto {
-   private int id;
-   private String descricao;
-   private float preco;
-   private int qunatidade;
-   private boolean oferta;
-   public static ArrayList<Produto> lista = new ArrayList();
+    
+    private String titulo;
+    private String descricao;
+    private String imagem;
+    private String keyWords;
+    private Categoria categoria;
+    private float preco;
+    private int qunatidade;
 
-   public Produto(){}
-   public Produto(String descricao){
-     this.descricao = descricao;
-   }
-   public Produto(String descricao, float preco){
-     this.descricao = descricao;
-     this.preco = preco;
-   }
-   public Produto(String descricao, float preco, boolean oferta){
-     this.descricao = descricao;
-     this.preco = preco;
-     this.oferta = oferta;
-   }
+    public static ArrayList<Produto> lista = new ArrayList();
 
+    public Produto(){}
+    
+    public Produto(String titulo){
+        this.titulo = titulo;
+    }
+    
+    public void vender(int qunatidade) {
+       this.qunatidade -= qunatidade;
+    }
 
-   public void vender(int qunatidade) {
-      this.qunatidade -= qunatidade;
-   }
+    public void comprar(int qunatidade) {
+       this.qunatidade += qunatidade;
+    }
+    
+    public int getQunatidade() {
+       return qunatidade;
+    }
 
-   public void comprar(int qunatidade) {
-      this.qunatidade += qunatidade;
-   }
+    public String getTitulo() {
+        return titulo;
+    }
 
-   public int getId() {
-      return id;
-   }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-   public void setId(int id) {
-      this.id = id;
-   }
+    public String getImagem() {
+        return imagem;
+    }
 
-   public int getQunatidade() {
-      return qunatidade;
-   }
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
-   public String getDescricao(){
+    public String getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
+    }
+    
+    public String getDescricao(){
         return this.descricao;
     }
 
-   public void setDescricao(String descricao){
+    public void setDescricao(String descricao){
         this.descricao = descricao;
     }
 
-    public float getPreco() {
+     public float getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+     public void setPreco(float preco) {
         this.preco = preco;
     }
 
-    public ArrayList<Produto> getLista() {
+     public ArrayList<Produto> getLista() {
         return lista;
     }
 
-    public void setLista(ArrayList<Produto> lista) {
+     public void setLista(ArrayList<Produto> lista) {
         Produto.lista = lista;
     }
 
-    public boolean isOferta() {
-        return oferta;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setOferta(boolean oferta) {
-        this.oferta = oferta;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
-
-   @Override
-   public String toString() {
-      return "Produto{" + ", descricao=" + descricao + ", preco=" + preco + ", qunatidade=" + qunatidade + ", oferta=" + oferta + '}';
-   }
 
 }
